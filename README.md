@@ -45,7 +45,7 @@ python crop_you_want.py --image_path <image_path> --text_prompt "<text_prompt>"
 
 Parameter:
 * `--image_path` The input image path, you can input multiple paths or the directory path containing images to be processed.
-* `--text_prompt` Enter a text prompt, which can be a word or a phrase. Use ''." to separate different text categories.
+* `--text_prompt` Enter a text prompt, which can be a word or a phrase. Use `.` to separate different text categories.
 * `--box_threshold` Threshold for bounding box. (default: 0.25)
 * `--text_threshold` Threshold to judge whether it is the corresponding text category. (default: 0.25)
 * `--extend` Extra dilated target box to crop. (default: 0)
@@ -53,6 +53,7 @@ Parameter:
 * `--model_weight` [`Pretrained model weights`](https://github.com/IDEA-Research/GroundingDINO/tree/9389fa492b0188ab85d2bba902f5451c0b1528d1#luggage-checkpoints) used by GroundingDINO. (defalt: `"weights/groundingdino_swint_ogc.pth"`)
 * `--output_path` Where to save the results. (default: `"output/"`)
 * `--device` Device want to use. If no gpu is available, set `"cpu"`. (default: `"cuda"`)
+* `--output_order` The order of the output results, set `score` to go from high to low according to the score, or set `x` or `y` to go from left to right or top to bottom. (default: `score`)
 * `--no_sub_dir` Do not create additional subdirectories, take effect by entering `--no_sub_dir`.
 
 ## Citation

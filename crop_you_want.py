@@ -41,7 +41,7 @@ def main():
     print(f"use device: {device}")
     if os.path.isdir(args.image_path[0]):
         image_path_list = [ os.path.join(args.image_path[0], file) for file in os.listdir(args.image_path[0])]
-        args.output_path = os.path.join(args.output_path, args.image_path[0])
+        args.output_path = os.path.join(args.output_path, os.path.basename(args.image_path[0]))
     else:
         image_path_list = args.image_path
 
@@ -53,7 +53,6 @@ def main():
     counter = defaultdict(int)
     for IMAGE_PATH in image_path_list:
         ##### Rredict one image #####
-        print(IMAGE_PATH)
         filename = os.path.splitext(os.path.basename(IMAGE_PATH))[0] 
         file_extension = os.path.splitext(os.path.basename(IMAGE_PATH))[1] 
         
@@ -117,7 +116,6 @@ def main():
                 x2 = int(min(np.ceil(box[2])+args.extend+1, w))
                 y2 = int(min(np.ceil(box[3])+args.extend+1, h))
                 crop_img = image_source[y1:y2, x1:x2]
-                print(f"{crop_image_name} {x1}, {x2}, {y1}, {y2}")
                 cv2.imwrite(os.path.join(output_dir_for_a_image, (crop_image_name + file_extension)), crop_img)
 
         print(f"{IMAGE_PATH} accumulation:\n\t{dict(counter)}")

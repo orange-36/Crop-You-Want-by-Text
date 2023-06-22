@@ -55,6 +55,7 @@ Parameter:
 * `--device` Device want to use. If no gpu is available, set `"cpu"`. (default: `"cuda"`)
 * `--output_order` The order of the output results, set `score` to go from high to low according to the score, or set `x` or `y` to go from left to right or top to bottom. (default: `score`)
 * `--no_sub_dir` Do not create additional subdirectories, take effect by entering `--no_sub_dir`.
+* `--square_crop` Crop the image into a square, take effect by set `--square_crop`.
 
 ## Citation
 

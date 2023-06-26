@@ -1,9 +1,11 @@
 # Crop-You-Want-by-Text
+<div align="center">
+  <img src="https://github.com/orange-36/Crop-You-Want-by-Text/blob/main/images/crop_you_want.png"/>
+</div>
 A tool that allows you to crop multiple desired areas of multiple images based on [`Grounding DINO`](https://github.com/IDEA-Research/GroundingDINO).
 
 ## Install 
-
-**Note:**
+**Note:**git
 
 If you have a CUDA environment, please make sure the environment variable `CUDA_HOME` is set. It will be compiled under CPU-only mode if no CUDA available.
 
@@ -14,23 +16,29 @@ Clone this repository from GitHub.
 ```bash
 git clone https://github.com/orange-36/Crop-You-Want-by-Text.git
 ```
+Init submodule.
 
+```bash
+cd Crop-You-Want-by-Text/
+git submodule init
+git submodule update
+```
 Change the current directory to the GroundingDINO folder.
 
 ```bash
-cd Crop-You-Want-by-Text/GroundingDINO/
+cd GroundingDINO/
 ```
 
 Install the required dependencies in the current directory.
 
 ```bash
 pip install -e .
+cd ..
 ```
 
 Download pre-trained model weights.
 
 ```bash
-cd ../..
 mkdir weights
 cd weights
 wget -q https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
@@ -56,6 +64,15 @@ Parameter:
 * `--output_order` The order of the output results, set `score` to go from high to low according to the score, or set `x` or `y` to go from left to right or top to bottom. (default: `score`)
 * `--no_sub_dir` Do not create additional subdirectories, take effect by entering `--no_sub_dir`.
 * `--square_crop` Crop the image into a square, take effect by set `--square_crop`.
+
+Execute the following program to obtain the [example results](#crop-you-want-by-text).
+```bash
+python crop_you_want.py \
+  --image_path images/man.png \
+  --text_prompt "eyes . mouth .  ears . nose . eyebrows" \
+  --box_threshold 0.3 \
+  --text_threshold 0.3
+```
 
 ## Citation
 

@@ -2,6 +2,7 @@
 <div align="center">
   <img src="https://github.com/orange-36/Crop-You-Want-by-Text/blob/main/images/crop_you_want.png"/>
 </div>
+
 A tool that allows you to crop multiple desired areas of multiple images based on [`Grounding DINO`](https://github.com/IDEA-Research/GroundingDINO).
 
 ## Install 
